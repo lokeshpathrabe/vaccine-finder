@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/vaccine-finder/app/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/vaccine-finder/app/static/js/main.d1c3021c.chunk.js",
+    "main.js.map": "/vaccine-finder/app/static/js/main.d1c3021c.chunk.js.map",
+    "runtime-main.js": "/vaccine-finder/app/static/js/runtime-main.2aac7c8a.js",
+    "runtime-main.js.map": "/vaccine-finder/app/static/js/runtime-main.2aac7c8a.js.map",
+    "static/js/2.86fda6b0.chunk.js": "/vaccine-finder/app/static/js/2.86fda6b0.chunk.js",
+    "static/js/2.86fda6b0.chunk.js.map": "/vaccine-finder/app/static/js/2.86fda6b0.chunk.js.map",
+    "static/js/3.d81dc803.chunk.js": "/vaccine-finder/app/static/js/3.d81dc803.chunk.js",
+    "static/js/3.d81dc803.chunk.js.map": "/vaccine-finder/app/static/js/3.d81dc803.chunk.js.map",
+    "index.html": "/vaccine-finder/app/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/vaccine-finder/app/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.86fda6b0.chunk.js.LICENSE.txt": "/vaccine-finder/app/static/js/2.86fda6b0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2aac7c8a.js",
+    "static/js/2.86fda6b0.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.d1c3021c.chunk.js"
+  ]
+}

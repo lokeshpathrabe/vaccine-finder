@@ -2,6 +2,7 @@
   "name": "vaccine-finder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "vaccine-finder/app",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/lab": "^4.0.0-alpha.58",
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf ./build ./app && react-scripts build && mv ./build ./app && mv ./app/index.html ./index.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
