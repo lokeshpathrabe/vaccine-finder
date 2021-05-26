@@ -13,17 +13,21 @@ import { makeStyles } from "@material-ui/core/styles";
 import Autocomplete from "@material-ui/lab/autocomplete";
 import { formatDate } from "../utils";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   filterContainer: {
     padding: "8px 0 8px 0",
   },
-});
+  filterRow: {
+    padding: theme.spacing(2),
+  },
+}));
 
 const FilterButton = ({ label, onClick, classes, className, ...props }) => {
   const [active, setActive] = useState(false);
   return (
     <Button
       {...props}
+      size="small"
       style={{ margin: "4px" }}
       variant="contained"
       color={active ? "primary" : "default"}
@@ -46,21 +50,26 @@ const Filters = ({ filters, setFilters }) => {
     filters?.state?.state_id
   );
   const onFilterClick = (filter_type) => {
-    const idx = filters?.category?.indexOf(filter_type);
-    const category = [...filters.category];
+    const idx = filters?.categories?.indexOf(filter_type);
+    const categories = [...filters.categories];
 
     if (idx > -1) {
-      category.splice(idx, 1);
-      setFilters({ ...filters, category });
+      categories.splice(idx, 1);
+      setFilters({ ...filters, categories });
     } else {
-      setFilters({ ...filters, category: [...category, filter_type] });
+      setFilters({ ...filters, categories: [...categories, filter_type] });
     }
   };
 
-  console.log("filters", filters);
   return (
     <Grid className={styles.filterContainer} container xs={12}>
-      <Grid container xs={12} justify="flex-start" spacing={2}>
+      <Grid
+        className={styles.filterRow}
+        container
+        xs={12}
+        justify="flex-start"
+        spacing={2}
+      >
         <Grid item>
           <TextField
             id="date"
@@ -115,7 +124,7 @@ const Filters = ({ filters, setFilters }) => {
           />
         </Grid>
       </Grid>
-      <Grid container xs={12} justify="flex-end">
+      <Grid className={styles.filterRow} container xs={12} justify="flex-end">
         <FilterButton label="18+" onClick={() => onFilterClick(ABOVE_AGE_18)} />
         <FilterButton label="45+" onClick={() => onFilterClick(ABOVE_AGE_45)} />
         <FilterButton

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const initialFilters = {
-  category: [],
+  categories: ["DATE"],
   state: {},
   district: {},
   date: new Date(),
@@ -35,7 +35,7 @@ function App() {
     filters?.district?.district_id,
     filters.date
   );
-  const filteredData = useFilters(data, filters.category);
+  const filteredData = useFilters(data, filters);
   const styles = useStyles();
   return (
     <div className={styles.app}>
