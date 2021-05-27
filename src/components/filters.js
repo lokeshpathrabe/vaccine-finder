@@ -68,7 +68,7 @@ const Filters = ({ filters, setFilters }) => {
         container
         xs={12}
         justify="flex-start"
-        spacing={2}
+        spacing={4}
       >
         <Grid item>
           <TextField
