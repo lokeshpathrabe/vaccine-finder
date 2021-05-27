@@ -4,6 +4,25 @@ import Container from "./components/container";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import Filters from "./components/filters";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  palette: {
+    type: "light",
+    primary: {
+      light: "#6573c3",
+      main: "#3f51b5",
+      dark: "#2c387e",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#a2cf6e",
+      main: "#8bc34a",
+      dark: "#618833",
+      contrastText: "#000",
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   app: {
@@ -38,16 +57,18 @@ function App() {
   const filteredData = useFilters(data, filters);
   const styles = useStyles();
   return (
-    <div className={styles.app}>
-      <div className={styles.container}>
-        <Filters filters={filters} setFilters={setFilters} />
-        {isLoading ? (
-          <div>loading ....</div>
-        ) : (
-          <Container data={filteredData} />
-        )}
+    <ThemeProvider theme={theme}>
+      <div className={styles.app}>
+        <div className={styles.container}>
+          <Filters filters={filters} setFilters={setFilters} />
+          {isLoading ? (
+            <div>loading ....</div>
+          ) : (
+            <Container data={filteredData} />
+          )}
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 

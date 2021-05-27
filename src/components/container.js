@@ -30,7 +30,7 @@ const Container = ({ data }) => {
   const styles = useStyles();
   return (
     <Paper className={styles.root} elevation={2}>
-      <Grid container spacing={2} justify="center">
+      <Grid container spacing={6} justify="center">
         {data?.length ? <CenterList data={data} /> : <NoCenter />}
       </Grid>
     </Paper>
