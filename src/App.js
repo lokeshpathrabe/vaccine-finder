@@ -1,36 +1,20 @@
 import { useSlotsByDistrict } from "./queries/useSlotsByDistrict";
 import { useFilters } from "./queries/useFilteredSlots";
 import Container from "./components/container";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import Filters from "./components/filters";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-
-const theme = createMuiTheme({
-  palette: {
-    type: "light",
-    primary: {
-      light: "#6573c3",
-      main: "#3f51b5",
-      dark: "#2c387e",
-      contrastText: "#fff",
-    },
-    secondary: {
-      light: "#a2cf6e",
-      main: "#8bc34a",
-      dark: "#618833",
-      contrastText: "#000",
-    },
-  },
-});
+import Header from "./components/header";
 
 const useStyles = makeStyles((theme) => ({
   app: {
+    height: "100%",
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-around",
     padding: "24px",
+    backgroundColor: theme.palette.background.default,
   },
   container: {
     display: "flex",
@@ -50,25 +34,28 @@ const initialFilters = {
 
 function App() {
   const [filters, setFilters] = useState(initialFilters);
+  const theme = useTheme();
   const { data, isLoading } = useSlotsByDistrict(
     filters?.district?.district_id,
     filters.date
   );
   const filteredData = useFilters(data, filters);
   const styles = useStyles();
+
+  document.querySelector("html").style.backgroundColor =
+    theme.palette.background.default;
+
   return (
-    <ThemeProvider theme={theme}>
-      <div className={styles.app}>
-        <div className={styles.container}>
-          <Filters filters={filters} setFilters={setFilters} />
-          {isLoading ? (
-            <div>loading ....</div>
-          ) : (
-            <Container data={filteredData} />
-          )}
-        </div>
+    <div className={styles.app}>
+      <div className={styles.container}>
+        <Filters filters={filters} setFilters={setFilters} />
+        {isLoading ? (
+          <div>loading ....</div>
+        ) : (
+          <Container data={filteredData} />
+        )}
       </div>
-    </ThemeProvider>
+    </div>
   );
 }
 

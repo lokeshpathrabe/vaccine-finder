@@ -2,6 +2,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/typography";
+import Header from "./header";
 import Tile from "./tile";
 
 const useStyles = makeStyles((theme) => ({
@@ -13,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     height: 80,
     width: 140,
   },
+  noCenter: {
+    padding: "20px",
+  },
 }));
 
 const CenterList = ({ data }) =>
@@ -22,8 +26,10 @@ const CenterList = ({ data }) =>
     </Grid>
   ));
 
-const NoCenter = () => (
-  <Typography align="center">No Centers to show</Typography>
+const NoCenter = ({ className }) => (
+  <Typography className={className} align="center">
+    No Centers to show
+  </Typography>
 );
 
 const Container = ({ data }) => {
@@ -31,7 +37,11 @@ const Container = ({ data }) => {
   return (
     <Paper className={styles.root} elevation={2}>
       <Grid container spacing={6} justify="center">
-        {data?.length ? <CenterList data={data} /> : <NoCenter />}
+        {data?.length ? (
+          <CenterList data={data} />
+        ) : (
+          <NoCenter className={styles.noCenter} />
+        )}
       </Grid>
     </Paper>
   );
