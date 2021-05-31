@@ -4,6 +4,7 @@ import { grey } from "@material-ui/core/colors";
 import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 const DarkSwitch = withStyles({
   switchBase: {
@@ -28,6 +29,10 @@ const useStyles = makeStyles({
   title: {
     fontWeight: 600,
   },
+  github: {
+    marginLeft: "24px",
+    padding: "2px",
+  },
 });
 
 const Header = ({ theme, setTheme }) => {
@@ -39,6 +44,12 @@ const Header = ({ theme, setTheme }) => {
         <Typography variant="h5" className={styles.title}>
           Vaccine Finder
         </Typography>
+        <a
+          className={styles.github}
+          href="https://github.com/lokeshpathrabe/vaccine-finder"
+        >
+          <GitHubIcon />
+        </a>
       </Grid>
       <Grid container xs={4} justify="flex-end">
         <DarkSwitch
