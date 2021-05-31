@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/grid";
 import Popover from "@material-ui/core/Popover";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import { useFilters } from "../queries/useFilteredSlots";
 import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => {
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme) => {
       overflow: "auto",
     },
     centerName: {
-      backgroundColor: theme.palette.secondary.light,
+      backgroundColor: theme.palette.secondary.dark,
       lineHeight: "1.5em",
       borderRadius: "4px",
       width: "100%",
