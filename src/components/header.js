@@ -5,6 +5,8 @@ import { Grid } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import Brightness3TwoToneIcon from "@material-ui/icons/Brightness3TwoTone";
+import WbSunnyTwoToneIcon from "@material-ui/icons/WbSunnyTwoTone";
 
 const DarkSwitch = withStyles({
   switchBase: {
@@ -25,30 +27,32 @@ const HeaderContainer = withStyles((theme) => ({
   },
 }))(Grid);
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: 600,
+    color: theme.palette.text.primary,
+  },
+  titleIcon: {
+    color: theme.palette.text.primary,
   },
   github: {
     marginLeft: "24px",
     padding: "2px",
+    color: theme.palette.text.primary,
   },
-});
+}));
 
 const Header = ({ theme, setTheme }) => {
   const styles = useStyles();
   return (
     <HeaderContainer container>
       <Grid container xs={8} justify="flex-start">
-        <LocalHospitalIcon fontSize="large" />
+        <LocalHospitalIcon className={styles.titleIcon} fontSize="large" />
         <Typography variant="h5" className={styles.title}>
           Vaccine Finder
         </Typography>
-        <a
-          className={styles.github}
-          href="https://github.com/lokeshpathrabe/vaccine-finder"
-        >
-          <GitHubIcon />
+        <a href="https://github.com/lokeshpathrabe/vaccine-finder">
+          <GitHubIcon className={styles.github} />
         </a>
       </Grid>
       <Grid container xs={4} justify="flex-end">
@@ -60,6 +64,13 @@ const Header = ({ theme, setTheme }) => {
           checked={theme === "dark"}
           color="#303030"
         />
+        {theme === "dark" ? (
+          <Brightness3TwoToneIcon
+            style={{ color: grey[500], alignSelf: "center" }}
+          />
+        ) : (
+          <WbSunnyTwoToneIcon style={{ color: grey[0], alignSelf: "center" }} />
+        )}
       </Grid>
     </HeaderContainer>
   );
