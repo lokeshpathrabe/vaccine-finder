@@ -8,6 +8,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { light_theme, dark_theme } from "./theme";
 import Header from "./components/header";
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 const themeMap = {
   light: light_theme,
@@ -22,8 +24,10 @@ const Layout = () => {
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={createMuiTheme(themeMap[theme])}>
-          <Header theme={theme} setTheme={setTheme} />
-          <App />
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <Header theme={theme} setTheme={setTheme} />
+            <App />
+          </MuiPickersUtilsProvider>
         </ThemeProvider>
         <ReactQueryDevtools />
       </QueryClientProvider>
