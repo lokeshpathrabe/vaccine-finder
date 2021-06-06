@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Grid, TextField } from "@material-ui/core";
 import {
   ABOVE_AGE_18,
@@ -7,11 +7,10 @@ import {
 } from "../queries/useFilteredSlots";
 import { useDistricts } from "../queries/useDistricts";
 import { useStates } from "../queries/useStates";
-import { useQuery, useQueryClient } from "react-query";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Autocomplete from "@material-ui/lab/autocomplete";
-import { formatDate } from "../utils";
+import { KeyboardDatePicker } from '@material-ui/pickers';
 
 const useStyles = makeStyles((theme) => ({
   filterContainer: {
@@ -66,62 +65,64 @@ const Filters = ({ filters, setFilters }) => {
       <Grid
         className={styles.filterRow}
         container
-        xs={12}
         justify="flex-start"
-        spacing={4}
       >
-        <Grid item>
-          <TextField
-            id="date"
-            label="Date"
-            type="date"
-            value={filters.date && formatDate(filters.date, "yyyy-MM-dd")}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            onChange={(e) => {
-              console.log("date value", e);
-              setFilters({ ...filters, date: e.target.valueAsDate });
-            }}
-          />
-        </Grid>
-        <Grid item>
-          <Autocomplete
-            id="states"
-            disabled={isLoadingStates}
-            options={states}
-            getOptionLabel={(option) => option.state_name}
-            getOptionSelected={(option, value) =>
-              option.state_id === value.state_id
-            }
-            style={{ width: 300 }}
-            renderInput={(params) => (
-              <TextField {...params} label="State" variant="outlined" />
-            )}
-            onChange={async (e, newValue) => {
-              setFilters({ ...filters, state: newValue });
-            }}
-          />
-        </Grid>
+        <Grid container item xs={12} md={10} lg={8} spacing={4}>
+          <Grid item xs={12} sm={4}>
+            <KeyboardDatePicker
+              id="date"
+              label="Date"
+              fullWidth
+              value={filters.date}
+              format="dd-MMM-yyyy"
+              variant="inline"
+              inputVariant="outlined"
+              disablePast
+              autoOk
+              InputAdornmentProps={{ position: "end" }}
+              onChange={(dateVal) => {
+                setFilters({ ...filters, date: dateVal });
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Autocomplete
+              id="states"
+              fullWidth
+              disabled={isLoadingStates}
+              options={states}
+              getOptionLabel={(option) => option.state_name}
+              getOptionSelected={(option, value) =>
+                option.state_id === value.state_id
+              }
+              renderInput={(params) => (
+                <TextField {...params} label="State" variant="outlined" />
+              )}
+              onChange={async (e, newValue) => {
+                setFilters({ ...filters, state: newValue });
+              }}
+            />
+          </Grid>
 
-        <Grid item>
-          <Autocomplete
-            key={filters?.state?.state_id || 0}
-            id="district"
-            disabled={isLoadingDistricts}
-            options={districts}
-            getOptionLabel={(option) => option.district_name}
-            getOptionSelected={(option, value) =>
-              option.district_id === value.district_id
-            }
-            style={{ width: 300 }}
-            renderInput={(params) => (
-              <TextField {...params} label="District" variant="outlined" />
-            )}
-            onChange={(e, newValue) => {
-              setFilters({ ...filters, district: newValue });
-            }}
-          />
+          <Grid item xs={12} sm={4}>
+            <Autocomplete
+              key={filters?.state?.state_id || 0}
+              id="district"
+              fullWidth
+              disabled={isLoadingDistricts}
+              options={districts}
+              getOptionLabel={(option) => option.district_name}
+              getOptionSelected={(option, value) =>
+                option.district_id === value.district_id
+              }
+              renderInput={(params) => (
+                <TextField {...params} label="District" variant="outlined" />
+              )}
+              onChange={(e, newValue) => {
+                setFilters({ ...filters, district: newValue });
+              }}
+            />
+          </Grid>
         </Grid>
       </Grid>
       <Grid className={styles.filterRow} container xs={12} justify="flex-end">
