@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/vaccine-finder/app/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/vaccine-finder/app/static/js/main.8c98840a.chunk.js",
-    "main.js.map": "/vaccine-finder/app/static/js/main.8c98840a.chunk.js.map",
-    "runtime-main.js": "/vaccine-finder/app/static/js/runtime-main.57d60a7c.js",
-    "runtime-main.js.map": "/vaccine-finder/app/static/js/runtime-main.57d60a7c.js.map",
-    "static/js/2.1ea3ec0b.chunk.js": "/vaccine-finder/app/static/js/2.1ea3ec0b.chunk.js",
-    "static/js/2.1ea3ec0b.chunk.js.map": "/vaccine-finder/app/static/js/2.1ea3ec0b.chunk.js.map",
-    "static/js/3.ebd905ef.chunk.js": "/vaccine-finder/app/static/js/3.ebd905ef.chunk.js",
-    "static/js/3.ebd905ef.chunk.js.map": "/vaccine-finder/app/static/js/3.ebd905ef.chunk.js.map",
+    "main.js": "/vaccine-finder/app/static/js/main.355b74bb.chunk.js",
+    "main.js.map": "/vaccine-finder/app/static/js/main.355b74bb.chunk.js.map",
+    "runtime-main.js": "/vaccine-finder/app/static/js/runtime-main.6b01c9c4.js",
+    "runtime-main.js.map": "/vaccine-finder/app/static/js/runtime-main.6b01c9c4.js.map",
+    "static/js/2.05620a03.chunk.js": "/vaccine-finder/app/static/js/2.05620a03.chunk.js",
+    "static/js/2.05620a03.chunk.js.map": "/vaccine-finder/app/static/js/2.05620a03.chunk.js.map",
+    "static/js/3.c47305f5.chunk.js": "/vaccine-finder/app/static/js/3.c47305f5.chunk.js",
+    "static/js/3.c47305f5.chunk.js.map": "/vaccine-finder/app/static/js/3.c47305f5.chunk.js.map",
     "index.html": "/vaccine-finder/app/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/vaccine-finder/app/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.1ea3ec0b.chunk.js.LICENSE.txt": "/vaccine-finder/app/static/js/2.1ea3ec0b.chunk.js.LICENSE.txt"
+    "static/js/2.05620a03.chunk.js.LICENSE.txt": "/vaccine-finder/app/static/js/2.05620a03.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.57d60a7c.js",
-    "static/js/2.1ea3ec0b.chunk.js",
+    "static/js/runtime-main.6b01c9c4.js",
+    "static/js/2.05620a03.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.8c98840a.chunk.js"
+    "static/js/main.355b74bb.chunk.js"
   ]
 }
