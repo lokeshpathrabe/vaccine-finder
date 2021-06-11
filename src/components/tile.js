@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => {
     center: {
       height: 80,
       width: 140,
-      overflow: "auto",
+      overflow: "hidden",
     },
     centerName: {
       backgroundColor: theme.palette.secondary.dark,
